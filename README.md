@@ -29,6 +29,9 @@
 | v1 | `login-btn` | `btn-primary` | `div.form-wrapper` | Увійти |
 | v2 | `sign-in-action` | `button-main` | `section.auth-panel > div.actions` (+ посилання поруч) | Увійти |
 | v3 | `sign-in-action` | `button-main` | як у v2 | Вхід |
+| v4 | `sign-in-action` | `button-main` | `div.actions`, тепер **друга** кнопка в ряду | Вхід |
+
+У v4 першою в ряду (на місці старої кнопки входу) стоїть нова кнопка `#register-action` «Зареєструватися» того ж типу (`button`, `type="button"`). Клік по ній виводить «Реєстрацію тимчасово закрито», тож перевірка «Вітаємо» падає, якщо Testim обере її.
 
 **Завдання 3 (кнопка кошика).** Лічильники `#cart-count` і `#fav-count` стабільні, тож на них зручно робити перевірки.
 

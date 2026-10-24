@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Завдання 2 · v4 — Форма авторизації</title>
+  <link rel="stylesheet" href="../assets/shell.css">
+  <link rel="stylesheet" href="../assets/demo.css">
+  <style>
+    .auth-panel .actions { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+    .auth-panel .extra { margin-top: 12px; }
+    .button-main {
+      flex: 1; font: inherit; font-weight: 600; padding: 10px 18px;
+      border: 2px solid #2b8a3e; border-radius: 999px; background: #2b8a3e; color: #fff; cursor: pointer;
+    }
+    .button-alt {
+      flex: 1; font: inherit; font-weight: 600; padding: 10px 18px;
+      border: 2px solid #2b8a3e; border-radius: 999px; background: transparent; color: #2b8a3e; cursor: pointer;
+    }
+  </style>
+</head>
+<body data-root="../" data-page="task2" data-version="v4">
+<main>
+  <!-- ===== Тестова форма (v4, хибний кандидат) =====
+       Зміни відносно v3:
+       - додано другу кнопку "Зареєструватися" (button, type="button")
+         і поставлено її ПЕРШОЮ — на місце, де раніше була кнопка входу
+         (одразу після поля пароля, той самий порядковий номер серед елементів);
+       - справжня кнопка входу ("Вхід", #sign-in-action) зсунулася на одну позицію далі.
+       Обидві кнопки збігаються з еталоном v1 за tag=BUTTON і type=button,
+       але кнопка реєстрації ще й за позицією (Index).
+       Клік по ній НЕ виконує вхід: з'являється інше повідомлення, і перевірка "Вітаємо" падає. -->
+  <section class="auth-panel demo-card">
+    <h2>Авторизація</h2>
+    <label class="demo-field"><span>Логін</span><input id="username" type="text" placeholder="Логін"></label>
+    <label class="demo-field"><span>Пароль</span><input id="password" type="password" placeholder="Пароль"></label>
+    <div class="actions">
+      <button id="register-action" class="button-alt" type="button">Зареєструватися</button>
+      <button id="sign-in-action" class="button-main" type="button">Вхід</button>
+    </div>
+    <div class="extra"><a class="demo-link" href="#" onclick="return false">Забули пароль?</a></div>
+    <p id="result" class="demo-result" aria-live="polite"></p>
+  </section>
+  <!-- ===== /Тестова форма ===== -->
+</main>
+<script>
+  document.getElementById('sign-in-action').addEventListener('click', function () {
+    var name = document.getElementById('username').value.trim();
+    var pass = document.getElementById('password').value;
+    var out = document.getElementById('result');
+    if (name && pass) { out.textContent = 'Вітаємо, ' + name + '!'; out.className = 'demo-result ok'; }
+    else { out.textContent = 'Заповніть логін і пароль'; out.className = 'demo-result err'; }
+  });
+  document.getElementById('register-action').addEventListener('click', function () {
+    var out = document.getElementById('result');
+    out.textContent = 'Реєстрацію тимчасово закрито';
+    out.className = 'demo-result err';
+  });
+</script>
+<script src="../assets/layout.js"></script>
+</body>
+</html>
