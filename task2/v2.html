@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Завдання 2 · v2 — Форма авторизації</title>
+  <link rel="stylesheet" href="../assets/shell.css">
+  <link rel="stylesheet" href="../assets/demo.css">
+  <style>
+    .auth-panel .actions {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px;
+    }
+    .button-main {
+      font: inherit; font-weight: 600; padding: 10px 26px;
+      border: 2px solid #2b8a3e; border-radius: 999px; background: #2b8a3e; color: #fff; cursor: pointer;
+    }
+  </style>
+</head>
+<body data-root="../" data-page="task2" data-version="v2">
+<main>
+  <!-- ===== Тестова форма (v2) =====
+       Зміни відносно v1:
+       - id кнопки:  login-btn   -> sign-in-action
+       - class:      btn-primary -> button-main
+       - контейнер:  div.form-wrapper > button
+                     -> section.auth-panel > div.actions > (посилання + кнопка)
+       - поля вводу та блок результату не змінені -->
+  <section class="auth-panel demo-card">
+    <h2>Авторизація</h2>
+    <label class="demo-field"><span>Логін</span><input id="username" type="text" placeholder="Логін"></label>
+    <label class="demo-field"><span>Пароль</span><input id="password" type="password" placeholder="Пароль"></label>
+    <div class="actions">
+      <a class="demo-link" href="#" onclick="return false">Забули пароль?</a>
+      <button id="sign-in-action" class="button-main" type="button">Увійти</button>
+    </div>
+    <p id="result" class="demo-result" aria-live="polite"></p>
+  </section>
+  <!-- ===== /Тестова форма ===== -->
+</main>
+<script>
+  document.getElementById('sign-in-action').addEventListener('click', function () {
+    var name = document.getElementById('username').value.trim();
+    var pass = document.getElementById('password').value;
+    var out = document.getElementById('result');
+    if (name && pass) { out.textContent = 'Вітаємо, ' + name + '!'; out.className = 'demo-result ok'; }
+    else { out.textContent = 'Заповніть логін і пароль'; out.className = 'demo-result err'; }
+  });
+</script>
+<script src="../assets/layout.js"></script>
+</body>
+</html>

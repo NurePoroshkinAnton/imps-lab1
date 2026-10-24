@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Завдання 4 · Каталог B (динамічні класи) · it3</title>
+  <link rel="stylesheet" href="../assets/shell.css">
+  <!-- Стилі, згенеровані "фреймворком" (імітація CSS Modules) -->
+  <style>
+._fza7fg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+._vizgb4{background:var(--shell-surface);border:1px solid var(--shell-border);border-radius:20px;padding:14px;position:relative}
+._1qq6tm{display:flex;flex-direction:column;gap:10px}
+._f8allm{height:140px;border-radius:14px}
+._j6it0r{display:flex;flex-direction:column;gap:4px}
+._9crv8n{margin:0;font-size:14px;text-transform:uppercase;letter-spacing:.03em}
+._edrg12{margin:0;font-size:18px;font-weight:700}
+._1k9yh6{align-self:flex-end;font:inherit;font-size:13px;font-weight:700;padding:6px 14px;border:0;border-radius:999px;background:#f08c00;color:#fff;cursor:pointer}
+@media (max-width:700px){._fza7fg{grid-template-columns:1fr}}
+
+._qm0n3p{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin-bottom:18px;font-size:15px}
+._nsb7uw{font-weight:700}
+  </style>
+</head>
+<body data-root="../" data-page="task4b" data-version="it3">
+<main>
+  <!-- ===== Каталог B (динамічні класи), it3 =====
+       Ітерація 3: кнопку перенесено вгору картки, змінено її текст і стиль, новий порядок, нові класи.
+       Жодних id чи data-testid — лише хеш-класи, що змінюються з кожною ітерацією. -->
+  <div class="_qm0n3p">
+    <span>У кошику: <span class="_nsb7uw">0</span></span>
+    <span>Товари: <span class="_nsb7uw">—</span></span>
+  </div>
+  <div class="_fza7fg">
+    <div class="_vizgb4">
+      <div class="_1qq6tm">
+        <button class="_1k9yh6" type="button">У кошик</button>
+        <div class="_f8allm" style="background:linear-gradient(135deg,#ffa8a8,#ff8787)" aria-hidden="true"></div>
+        <div class="_j6it0r">
+          <h3 class="_9crv8n">Механічна клавіатура</h3>
+          <p class="_edrg12">2 899 грн</p>
+        </div>
+      </div>
+    </div>
+    <div class="_vizgb4">
+      <div class="_1qq6tm">
+        <button class="_1k9yh6" type="button">У кошик</button>
+        <div class="_f8allm" style="background:linear-gradient(135deg,#8ce99a,#69db7c)" aria-hidden="true"></div>
+        <div class="_j6it0r">
+          <h3 class="_9crv8n">Монітор 27″</h3>
+          <p class="_edrg12">8 499 грн</p>
+        </div>
+      </div>
+    </div>
+    <div class="_vizgb4">
+      <div class="_1qq6tm">
+        <button class="_1k9yh6" type="button">У кошик</button>
+        <div class="_f8allm" style="background:linear-gradient(135deg,#74c0fc,#4dabf7)" aria-hidden="true"></div>
+        <div class="_j6it0r">
+          <h3 class="_9crv8n">Бездротова миша</h3>
+          <p class="_edrg12">799 грн</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===== /Каталог ===== -->
+</main>
+<script>
+  // Обробник шукає назву товару в межах картки, щоб у кошику було видно, ЯКИЙ товар додано.
+  (function () {
+    var items = [];
+    var counters = document.querySelectorAll('._nsb7uw');
+    document.querySelectorAll('._1k9yh6').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = btn.closest('._vizgb4');
+        items.push(card.querySelector('._9crv8n').textContent);
+        counters[0].textContent = items.length;
+        counters[1].textContent = items.join(', ');
+      });
+    });
+  })();
+</script>
+<script src="../assets/layout.js"></script>
+</body>
+</html>

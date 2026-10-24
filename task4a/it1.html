@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Завдання 4 · Каталог A (data-testid) · it1</title>
+  <link rel="stylesheet" href="../assets/shell.css">
+  <!-- Стилі, згенеровані "фреймворком" (імітація CSS Modules) -->
+  <style>
+._y40mmz{display:flex;flex-direction:column;gap:10px}
+._d122c7{background:var(--shell-surface);border:1px solid var(--shell-border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+._ump57m{width:64px;height:64px;border-radius:8px;flex-shrink:0}
+._c7pq24{margin:0;font-size:16px;flex:1;min-width:140px}
+._5rclgc{margin:0;font-weight:600;min-width:90px}
+._yqalnm{font:inherit;font-weight:600;padding:8px 14px;border:2px solid #3b5bdb;border-radius:8px;background:transparent;color:#3b5bdb;cursor:pointer}
+
+._ptwmts{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin-bottom:18px;font-size:15px}
+._hwiom1{font-weight:700}
+  </style>
+</head>
+<body data-root="../" data-page="task4a" data-version="it1">
+<main>
+  <!-- ===== Каталог A (data-testid), it1 =====
+       Ітерація 1: сітку замінено списком (рядки), усі класи перегенеровано.
+       Кнопки та лічильник мають стабільні data-testid; вони НЕ змінюються між ітераціями. -->
+  <div class="_ptwmts">
+    <span>У кошику: <span class="_hwiom1" data-testid="cart-count">0</span></span>
+    <span>Товари: <span class="_hwiom1" data-testid="cart-items">—</span></span>
+  </div>
+  <div class="_y40mmz">
+    <div class="_d122c7">
+      <div class="_ump57m" style="background:linear-gradient(135deg,#74c0fc,#4dabf7)" aria-hidden="true"></div>
+      <h3 class="_c7pq24">Бездротова миша</h3>
+      <p class="_5rclgc">799 грн</p>
+      <button class="_yqalnm" type="button" data-testid="add-to-cart-mouse">Додати в кошик</button>
+    </div>
+    <div class="_d122c7">
+      <div class="_ump57m" style="background:linear-gradient(135deg,#ffa8a8,#ff8787)" aria-hidden="true"></div>
+      <h3 class="_c7pq24">Механічна клавіатура</h3>
+      <p class="_5rclgc">2 899 грн</p>
+      <button class="_yqalnm" type="button" data-testid="add-to-cart-keyboard">Додати в кошик</button>
+    </div>
+    <div class="_d122c7">
+      <div class="_ump57m" style="background:linear-gradient(135deg,#8ce99a,#69db7c)" aria-hidden="true"></div>
+      <h3 class="_c7pq24">Монітор 27″</h3>
+      <p class="_5rclgc">8 499 грн</p>
+      <button class="_yqalnm" type="button" data-testid="add-to-cart-monitor">Додати в кошик</button>
+    </div>
+  </div>
+  <!-- ===== /Каталог ===== -->
+</main>
+<script>
+  // Обробник шукає назву товару в межах картки, щоб у кошику було видно, ЯКИЙ товар додано.
+  (function () {
+    var items = [];
+    var counters = document.querySelectorAll('._hwiom1');
+    document.querySelectorAll('._yqalnm').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = btn.closest('._d122c7');
+        items.push(card.querySelector('._c7pq24').textContent);
+        counters[0].textContent = items.length;
+        counters[1].textContent = items.join(', ');
+      });
+    });
+  })();
+</script>
+<script src="../assets/layout.js"></script>
+</body>
+</html>

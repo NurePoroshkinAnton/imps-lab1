@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Завдання 3 · v3 — Картка товару</title>
+  <link rel="stylesheet" href="../assets/shell.css">
+  <link rel="stylesheet" href="../assets/demo.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body data-root="../" data-page="task3" data-version="v3">
+<main>
+  <div class="shop-counters">
+    <div>Кошик: <strong id="cart-count">0</strong></div>
+    <div>Обране: <strong id="fav-count">0</strong></div>
+  </div>
+
+  <!-- ===== Картка товару (v3, посилена пастка) =====
+       Зміни відносно v2:
+       - текст кнопки обраного: "В обране" -> "Купити пізніше"
+         (містить старий текст "Купити", має старий клас action-buy, стоїть на старій позиції)
+       - кнопка кошика: "Додати до кошика", клас cta-cart (як у v2)
+       Використовуйте, якщо на v2 Testim відновив локатор правильно. -->
+  <article class="product-card">
+    <div class="product-image" aria-hidden="true"></div>
+    <div class="product-info">
+      <h2 class="product-title">Бездротові навушники</h2>
+      <p class="product-price">2 499 грн</p>
+      <div class="product-actions">
+        <button class="btn action-buy" type="button">Купити пізніше</button>
+        <button class="btn cta-cart" type="button">Додати до кошика</button>
+      </div>
+    </div>
+  </article>
+  <!-- ===== /Картка товару ===== -->
+</main>
+<script>
+  var cart = 0, fav = 0;
+  document.querySelector('.cta-cart').addEventListener('click', function () {
+    document.getElementById('cart-count').textContent = ++cart;
+  });
+  document.querySelector('.action-buy').addEventListener('click', function () {
+    document.getElementById('fav-count').textContent = ++fav;
+  });
+</script>
+<script src="../assets/layout.js"></script>
+</body>
+</html>

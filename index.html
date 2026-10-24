@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ЛР1 · Self-healing стенд</title>
+  <link rel="stylesheet" href="assets/shell.css">
+  <style>
+    .intro h1 { font-size: 26px; margin: 0 0 8px; }
+    .intro p { max-width: 720px; }
+    .rules { background: var(--shell-surface); border: 1px solid var(--shell-border); border-radius: 12px; padding: 16px 20px; margin: 20px 0; max-width: 760px; }
+    .rules h2, .pages h2 { font-size: 17px; margin: 0 0 8px; }
+    .rules li { margin: 4px 0; }
+    .pages { margin-top: 28px; }
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; max-width: 900px; background: var(--shell-surface); border-radius: 12px; overflow: hidden; font-size: 14px; }
+    th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--shell-border); vertical-align: top; }
+    th { background: var(--shell-bg); font-weight: 600; }
+    td code { font-size: 13px; }
+    code { font-family: ui-monospace, Menlo, monospace; background: var(--shell-bg); padding: 1px 5px; border-radius: 4px; }
+    a { color: var(--shell-accent); }
+  </style>
+</head>
+<body data-root="./">
+<main class="intro">
+  <h1>Стенд для ЛР1 «Self-healing тести»</h1>
+  <p>Тестові сторінки для завдань 2–4. Кожне завдання має кілька версій сторінки. У бокову панель винесено перелік сторінок, у хедері є перемикач версій.</p>
+
+  <div class="rules">
+    <h2>Як користуватися з Testim</h2>
+    <ol>
+      <li>Записуйте тест на <b>першій</b> версії сторінки (v1 або it0), відкритій за прямою адресою.</li>
+      <li>Щоб запустити той самий тест на іншій версії, змініть у Testim стартову адресу тесту (Base URL) на адресу потрібної версії. <b>Не перемикайте версію через меню в хедері під час запису</b>: тоді перемикання стане кроком тесту.</li>
+      <li>Завжди додавайте в кінці тесту крок перевірки результату (Validation): текст «Вітаємо», лічильник кошика тощо. Без нього хибне відновлення залишиться непоміченим.</li>
+      <li>Оболонка (панель і хедер) однакова на всіх версіях, змінюється тільки вміст сторінки. Що саме змінено, описано в синій плашці та в HTML-коментарях у коді кожної версії.</li>
+    </ol>
+  </div>
+
+  <section class="pages">
+    <h2>Сторінки та версії</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Завдання</th><th>Версія</th><th>Адреса</th><th>Що перевіряємо</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3">2 · DOM-мутація</td><td>v1</td><td><a href="task2/v1.html"><code>task2/v1.html</code></a></td><td>Запис тесту: логін → пароль → клік → перевірка «Вітаємо»</td></tr>
+        <tr><td>v2</td><td><a href="task2/v2.html"><code>task2/v2.html</code></a></td><td>Змінено id, class і контейнер. Чи спрацює відновлення?</td></tr>
+        <tr><td>v3</td><td><a href="task2/v3.html"><code>task2/v3.html</code></a></td><td>Змінено ще й текст. Межа можливостей ШІ</td></tr>
+        <tr><td rowspan="3">3 · Review та Merge</td><td>v1</td><td><a href="task3/v1.html"><code>task3/v1.html</code></a></td><td>Запис тесту: клік по кнопці кошика → перевірка «Кошик: 1»</td></tr>
+        <tr><td>v2</td><td><a href="task3/v2.html"><code>task3/v2.html</code></a></td><td>Міграція: нова назва, переставлені класи й кнопки. Шукаємо хибне відновлення</td></tr>
+        <tr><td>v3</td><td><a href="task3/v3.html"><code>task3/v3.html</code></a></td><td>Посилена пастка, якщо на v2 ШІ не помилився</td></tr>
+        <tr><td rowspan="4">4 · Варіант A<br>(data-testid)</td><td>it0</td><td><a href="task4a/it0.html"><code>task4a/it0.html</code></a></td><td>Запис тесту: додати клавіатуру → перевірка лічильника й назви</td></tr>
+        <tr><td>it1</td><td><a href="task4a/it1.html"><code>task4a/it1.html</code></a></td><td>Сітка → список</td></tr>
+        <tr><td>it2</td><td><a href="task4a/it2.html"><code>task4a/it2.html</code></a></td><td>Новий порядок товарів, обгортки</td></tr>
+        <tr><td>it3</td><td><a href="task4a/it3.html"><code>task4a/it3.html</code></a></td><td>Кнопка вгорі, новий текст і стиль</td></tr>
+        <tr><td rowspan="4">4 · Варіант B<br>(динамічні класи)</td><td>it0</td><td><a href="task4b/it0.html"><code>task4b/it0.html</code></a></td><td>Те саме, але без data-testid</td></tr>
+        <tr><td>it1</td><td><a href="task4b/it1.html"><code>task4b/it1.html</code></a></td><td>Сітка → список</td></tr>
+        <tr><td>it2</td><td><a href="task4b/it2.html"><code>task4b/it2.html</code></a></td><td>Новий порядок товарів, обгортки</td></tr>
+        <tr><td>it3</td><td><a href="task4b/it3.html"><code>task4b/it3.html</code></a></td><td>Кнопка вгорі, новий текст і стиль</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+</main>
+<script src="assets/layout.js"></script>
+</body>
+</html>

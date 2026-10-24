@@ -1,0 +1,17 @@
+/* Базові стилі тестових сторінок завдань 2 і 3. */
+.demo-card {
+  background: var(--shell-surface); border: 1px solid var(--shell-border);
+  border-radius: 14px; padding: 28px; max-width: 420px;
+}
+.demo-card h2 { margin: 0 0 18px; font-size: 22px; }
+.demo-field { display: block; margin-bottom: 14px; }
+.demo-field span { display: block; font-size: 13px; color: var(--shell-muted); margin-bottom: 4px; }
+.demo-field input {
+  width: 100%; font: inherit; padding: 10px 12px; border-radius: 8px;
+  border: 1px solid var(--shell-border); background: var(--shell-bg); color: var(--shell-text);
+}
+.demo-result { margin-top: 18px; font-weight: 600; min-height: 1.5em; }
+.demo-result.ok { color: #2b8a3e; }
+.demo-result.err { color: #c92a2a; }
+.demo-hint { font-size: 13px; color: var(--shell-muted); }
+.demo-link { color: var(--shell-accent); font-size: 14px; }

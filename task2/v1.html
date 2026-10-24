@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Завдання 2 · v1 — Форма авторизації</title>
+  <link rel="stylesheet" href="../assets/shell.css">
+  <link rel="stylesheet" href="../assets/demo.css">
+  <style>
+    .btn-primary {
+      width: 100%; font: inherit; font-weight: 600; padding: 11px; margin-top: 6px;
+      border: 0; border-radius: 8px; background: #3b5bdb; color: #fff; cursor: pointer;
+    }
+  </style>
+</head>
+<body data-root="../" data-page="task2" data-version="v1">
+<main>
+  <!-- ===== Тестова форма (v1) ===== -->
+  <div class="form-wrapper demo-card">
+    <h2>Авторизація</h2>
+    <label class="demo-field"><span>Логін</span><input id="username" type="text" placeholder="Логін"></label>
+    <label class="demo-field"><span>Пароль</span><input id="password" type="password" placeholder="Пароль"></label>
+    <button id="login-btn" class="btn-primary" type="button">Увійти</button>
+    <p id="result" class="demo-result" aria-live="polite"></p>
+  </div>
+  <!-- ===== /Тестова форма ===== -->
+</main>
+<script>
+  document.getElementById('login-btn').addEventListener('click', function () {
+    var name = document.getElementById('username').value.trim();
+    var pass = document.getElementById('password').value;
+    var out = document.getElementById('result');
+    if (name && pass) { out.textContent = 'Вітаємо, ' + name + '!'; out.className = 'demo-result ok'; }
+    else { out.textContent = 'Заповніть логін і пароль'; out.className = 'demo-result err'; }
+  });
+</script>
+<script src="../assets/layout.js"></script>
+</body>
+</html>

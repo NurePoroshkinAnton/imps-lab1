@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Завдання 3 · v1 — Картка товару</title>
+  <link rel="stylesheet" href="../assets/shell.css">
+  <link rel="stylesheet" href="../assets/demo.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body data-root="../" data-page="task3" data-version="v1">
+<main>
+  <div class="shop-counters">
+    <div>Кошик: <strong id="cart-count">0</strong></div>
+    <div>Обране: <strong id="fav-count">0</strong></div>
+  </div>
+
+  <!-- ===== Картка товару (v1) =====
+       Основна дія:     button.btn.action-buy  (кошик)
+       Другорядна дія:  button.btn.action-fav  (обране) -->
+  <article class="product-card">
+    <div class="product-image" aria-hidden="true"></div>
+    <div class="product-info">
+      <h2 class="product-title">Бездротові навушники</h2>
+      <p class="product-price">2 499 грн</p>
+      <div class="product-actions">
+        <button class="btn action-buy" type="button">Купити</button>
+        <button class="btn action-fav" type="button">В обране</button>
+      </div>
+    </div>
+  </article>
+  <!-- ===== /Картка товару ===== -->
+</main>
+<script>
+  // Обробники прив'язані до кнопок через класи саме цієї версії.
+  var cart = 0, fav = 0;
+  document.querySelector('.action-buy').addEventListener('click', function () {
+    document.getElementById('cart-count').textContent = ++cart;
+  });
+  document.querySelector('.action-fav').addEventListener('click', function () {
+    document.getElementById('fav-count').textContent = ++fav;
+  });
+</script>
+<script src="../assets/layout.js"></script>
+</body>
+</html>
